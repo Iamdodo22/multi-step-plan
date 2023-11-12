@@ -695,6 +695,10 @@ video {
   align-self: flex-end;
 }
 
+.overflow-scroll {
+  overflow: scroll;
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -1004,6 +1008,10 @@ video {
 
   .max-sm\:justify-center {
     justify-content: center;
+  }
+
+  .max-sm\:gap-8 {
+    gap: 2rem;
   }
 
   .max-sm\:justify-self-center {
