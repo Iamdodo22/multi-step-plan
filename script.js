@@ -95,12 +95,14 @@ const planData = Array.from(document.querySelectorAll('.plan-data'));
 const planS3 = Array.from(document.querySelectorAll('.plan-s3'));
 const checkbox = document.querySelector('.checkbox input');
 const btnCon2 = document.querySelector('.btn-con');
+const data4 = document.querySelector('.data4');
 
 checkbox.addEventListener('change', function(e) {
     this.previousElementSibling.classList.toggle('text-gray8');
     this.nextElementSibling.classList.toggle('text-gray8');
     planData.forEach(el => el.classList.toggle('hidden'));
     planS3.forEach(el => el.classList.toggle('hidden'));
+    data4.textContent =`${this.checked? 'Total (per year)': 'Total (per month)'}`
 })
 
 checkbox.closest('div').addEventListener('click', function(e) {
@@ -112,8 +114,9 @@ checkbox.closest('div').addEventListener('click', function(e) {
     const filtered =el.filter(e => e.classList.contains('hidden') === false )
     // data.push(filtered)
     data = filtered;
-    
-    console.log(data) 
+
+    document.querySelector('.data1').textContent = `${data[0].textContent} (monthly)`;
+    document.querySelector('.data2').textContent = `${data[1].textContent}`;
 
 })
 
@@ -125,18 +128,23 @@ btnCon2.addEventListener('click', function(e) {
         this.closest('section').style.display = 'none';
         activePage()
     }
-    if(e.target === btn[1]){
+    if(e.target === btn[1] && data.length > 0){
         curPage++;
         page[curPage].style.display = 'flex';
         this.closest('section').style.display = 'none';
         activePage()
     }
-    console.log(data)
 })
 
 //step 3...
 const btnCon3 = document.querySelector('.btn-con3');
+const data3 = document.querySelector('.data3');
+const checkEl = Array.from(document.querySelectorAll('.accent-Purple'));
 
+/* <div class="flex justify-between">
+<h3 class="text-gray8 text-sm">Online service</h3>
+<p class="text-blue12 text-sm">$1/mo</p>
+</div> */
 
 btnCon3.addEventListener('click', function(e) {
     const btn = Array.from(this.querySelectorAll('button'))
@@ -146,11 +154,28 @@ btnCon3.addEventListener('click', function(e) {
         this.closest('section').style.display = 'none';
         activePage()
     }
-    if(e.target === btn[1]){
+    if(e.target === btn[1] && checkEl.some(el => el.checked)){
         curPage++;
         page[curPage].style.display = 'flex';
         this.closest('section').style.display = 'none';
         activePage()
+        data3.innerHTML = '';
+       const checked = checkEl.filter(el => el.checked);
+       checked.map(chk => {
+        const noHidden = Array.from(chk.nextElementSibling.children);
+        const filterHidden = noHidden.filter(el => el.classList.contains('hidden') === false);
+
+         const html = `
+         <div class="flex justify-between">
+         <h3 class="text-gray8 text-sm">${filterHidden[0].firstElementChild.textContent}</h3>
+         <p class="text-blue12 text-sm">${filterHidden[1].textContent}</p>
+         </div>
+         ` 
+         data3.insertAdjacentHTML('beforeend', html);
+        })
+        
+        
+       
     }
 })
 
