@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="/output.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <style>
+    .toggleBox::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1rem;
+      height: 100%;
+      background-color: white;
+      border-radius: 50%;
+      transition: all, .5s;
+    }
+    .toggleBox:checked::before{
+      left: 60%;
+    }
+    .grid-repeat{
+      grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    }
+  </style>
+</head>
+
+<body class="bg-gray2 w-full overflow-x-hidden max-sm:h-full">
+  <main class="bg-White rounded-md shadow-2xl max-sm:w-full max-sm:bg-inherit max-sm:shadow-none max-sm:h-full">
+    
+    <section class="w-3/4 mx-auto grid grid-cols-[1fr,2fr] grid-rows-[80vh] bg-White absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 max-sm:p-0 rounded-md max-sm:grid-cols-[1fr] max-sm:grid-rows-[30vh,70vh] max-sm:relative max-sm:top-0 max-sm:left-0 max-sm:-translate-x-0 max-sm:-translate-y-0 max-sm:w-full max-sm:mx-0 max-sm:bg-inherit">
+  <!-- Sidebar start -->
+      <div class="bg-[url('/assets/images/bg-sidebar-desktop.svg')] bg-cover bg-no-repeat w-full h-full bg-center rounded-md max-sm:bg-[url('/assets/images/bg-sidebar-mobile.svg')]">
+        <ul class="flex flex-col pl-8 pt-8 gap-3 font-bold nav-con max-sm:flex-row max-sm:justify-center max-sm:pl-0">
+          <li class="flex gap-2 items-center">
+            <div class="w-6 h-6 rounded-full flex justify-center items-center border text-White">1</div>
+            <span class="flex flex-col max-sm:hidden">
+              <h3 class="text-gray8 text-sm uppercase">Step 1</h3>
+              <p class="uppercase text-lg text-White">Your info</p>
+            </span>
+          </li>
+  
+          <li class="flex gap-2 items-center">
+            <div class="w-6 h-6 rounded-full flex justify-center items-center border text-White">2</div>
+            <span class="flex flex-col max-sm:hidden">
+              <h3 class="text-gray8 text-sm uppercase">Step 2</h3>
+              <p class="uppercase text-lg text-White">Select plan</p>
+            </span>
+          </li>
+  
+          <li class="flex gap-2 items-center">
+            <div class="w-6 h-6 rounded-full flex justify-center items-center border text-White">3</div>
+            <span class="flex flex-col max-sm:hidden">
+              <h3 class="text-gray8 text-sm uppercase">Step 3</h3>
+              <p class="uppercase text-lg text-White">Add-ons</p>
+            </span>
+          </li>
+  
+          <li class="flex gap-2 items-center">
+            <div class="w-6 h-6 rounded-full flex justify-center items-center border text-White">4</div>
+            <span class="flex flex-col max-sm:hidden">
+              <h3 class="text-gray8 text-sm uppercase">Step 4</h3>
+              <p class="uppercase text-lg text-White">Summary</p>
+            </span>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Sidebar end -->
+  
+      <div class="relative overflow-x-hidden max-sm:flex max-sm:justify-center max-sm:w-[90%] max-sm:-top-[15%] max-sm:z-30 max-sm:justify-self-center mainCon"> 
+        <!-- Step 1 start -->
+        <section class="pt-8 flex flex-col gap-5 text-base  font-bold px-16 h-full absolute max-sm:px-4">
+          <div class="flex flex-col gap-5 max-sm:bg-White p-5 max-sm:rounded-md">
+          <span>
+            <h2 class="text-2xl text-blue12">Personal info</h2>
+            <p class="text-gray8">Please provide your name, email address, and phone number.</p>
+          </span>
+  
+          <form class="flex flex-col gap-3">
+            <div class="flex flex-col">
+            <div class="flex justify-between">  
+              <label for="name" class="text-Purple">Name</label>
+              <small class="text-berry self-end hidden">ggg</small>
+            </div>
+              <input type="text" placeholder="e.g. Stephen King" class="border border-gray8 p-2">
+            </div>
+  
+            <div class="flex flex-col">
+            <div class="flex justify-between">  
+              <label for="email" class="text-Purple">Email Address</label>
+              <small class="text-berry self-end hidden">ggg</small>
+            </div>
+              <input type="email" placeholder=" e.g. stephenking@lorem.com" class="border border-gray8 p-2">
+            </div>
+  
+            <div class="flex flex-col">
+            <div class="flex justify-between">  
+              <label for="PhoneNum" class="text-Purple">Phone Number</label>
+              <small class="text-berry self-end hidden">ggg</small>
+            </div>
+              <input type="number" placeholder="e.g. +1 234 567 890" class="border border-gray8 p-2">
+            </div>
+          </form>
+        </div>
+
+          <div class="mt-auto max-sm:fixed max-sm:bottom-0 max-sm:bg-White max-sm:w-full max-sm:py-4 max-sm:left-0 flex justify-end items-center">
+            <button class="text-gray4 bg-blue12 p-1 self-end px-4 rounded-md max-sm:mr-6 btn-next">Next Step</button>
+          </div>
+          
+        </section>
+        <!-- Step 1 end -->
+  
+        <!-- Step 2 start -->
+        <section class="pt-8 hidden h-full flex-col gap-5 text-base  font-bold px-16 w-full absolute max-sm:px-4">
+          <div class="flex flex-col gap-5 max-sm:bg-White p-5 max-sm:rounded-md">
+          <span>
+            <h2 class="text-2xl text-blue12">Select your plan</h2>
+            <p class="text-gray8">You have the option of monthly or yearly billing.</p>
+          </span>
+
+          <div class="grid grid-cols-3 gap-2 grid-repeat">
+            <span class="flex flex-col w-full h-full gap-8 border border-gray8 p-4 hover:border-purple rounded-md">
+              <img src="/assets/images/icon-arcade.svg" 
+              alt="plan-img"
+              class="w-8 h-8"> 
+              <div class="flex flex-col plan-value">
+                <h3 class="text-blue">Arcade</h3>
+                <p class="plan-data text-gray8">$9/mo</p>
+                <!-- the yearly values -->
+                <p class="plan-data hidden text-gray8">$90/yr</p>
+                <h4 class="plan-data hidden ">2 months free</h4>
+              </div>
+            </span>
+
+            <span class="flex flex-col w-full h-full gap-8 border border-gray8 p-4 hover:border-purple rounded-md">
+              <img src="/assets/images/icon-advanced.svg" 
+              alt="plan-img"
+              class="w-8 h-8">
+              <div class="flex flex-col plan-value">
+                <h3 class="text-blue">Advanced</h3>
+                <p class="plan-data text-gray8">$12/mo</p>
+                <!-- the yearly values -->
+                <p class="plan-data hidden text-gray8">$120/yr</p>
+                <h4 class="plan-data hidden ">2 months free</h4>
+              </div>
+            </span>
+
+            <span class="flex flex-col w-full h-full gap-8 border border-gray8 p-4 rounded-md">
+              <img src="/assets/images/icon-pro.svg" 
+              alt="plan-img"
+              class="w-8 h-8">
+              <div class="flex flex-col plan-value">
+                <h3 class="text-blue">Pro</h3>
+                <p class="plan-data text-gray8">$15/mo</p>
+                <!-- the yearly values -->
+                <p class="plan-data hidden text-gray8">$150/yr</p>
+                <h4 class="plan-data hidden ">2 months free</h4>
+              </div>
+            </span>
+          </div>
+
+          <span class="flex justify-center bg-blue6 items-center py-2 gap-2 checkbox">
+            <label for="monthly">Monthly</label>
+            <input type="checkbox"
+            class="w-10 appearance-none border border-blue12 h-4 rounded-lg relative bg-blue12 toggleBox">
+            <label for="yearly" class="text-gray8 year">Yearly</label>
+          </span>
+          </div>
+          <span class="btn-con mt-auto max-sm:fixed max-sm:bottom-0 max-sm:bg-White max-sm:w-full max-sm:py-4 max-sm:left-0 flex justify-between items-center max-sm:px-4">
+            <button class="text-gray8 btn-back">Go Back</button>
+            <button class="text-gray4 bg-blue12 p-1 self-end px-4 rounded-md btn-next" >Next Step</button>
+          </span>
+        </section>
+        <!-- Step 2 end -->
+        
+        <!-- Step 3 start -->
+        <section class="pt-8 hidden h-full flex-col gap-5 text-base  font-bold px-16 w-full absolute max-sm:px-4">
+          <div class="flex flex-col gap-5 max-sm:bg-White p-5 max-sm:rounded-md">
+          <span>
+            <h2 class="text-2xl text-blue12">Pick add-ons</h2>
+            <p class="text-gray8">Add-ons help enhance your gaming experience.</p>
+          </span>
+
+          <div class="flex flex-col gap-4">
+            <span class="flex border border-gray8 p-4 gap-2 rounded-md">
+              <input type="checkbox"
+              class="accent-Purple flex-initial">
+              <div class="flex justify-between items-center flex-auto">
+                <span class="flex flex-col">
+                  <h3 class="text-blue12">Online service</h3>
+                  <p class="text-gray8">Access to multiplayer games</p>
+                </span>
+                <p class="plan-s3 text-Purple">+$1/mo</p>
+                <p class="plan-s3 hidden text-Purple">+$10/yr</p>
+              </div>
+            </span>
+
+            <span class="flex border border-gray8 p-4 gap-2 rounded-md">
+              <input type="checkbox"
+              class="accent-Purple flex-initial">
+              <div class="flex justify-between items-center flex-auto">
+                <span class="flex flex-col">
+                  <h3 class="text-blue12">Larger storage</h3>
+                  <p class="text-gray8">Extra 1TB of cloud save</p>
+                </span>
+                <p class="plan-s3 text-Purple">+$2/mo</p>
+                <p class="plan-s3 hidden text-Purple">+$20/yr</p>
+              </div>
+            </span>
+
+            <span class="flex border border-gray8 p-4 gap-2 rounded-md">
+              <input type="checkbox"
+              class="accent-Purple flex-initial">
+              <div class="flex justify-between items-center flex-auto">
+                <span class="flex flex-col">
+                  <h3 class="text-blue12">Customizable Profile</h3>
+                  <p class="text-gray8">Custom theme on your profile</p>
+                </span>
+                <p class="plan-s3 text-Purple">+$2/mo</p>
+                <p class="plan-s3 hidden text-Purple">+$20/yr</p>
+              </div>
+            </span>
+          </div>
+          </div>
+          <span class="btn-con3 mt-auto max-sm:fixed max-sm:bottom-0 max-sm:bg-White max-sm:w-full max-sm:py-4 max-sm:left-0 flex justify-between items-center max-sm:px-4 ">
+            <button class="text-gray8 btn-back">Go Back</button>
+            <button class="text-gray4 bg-blue12 p-1 self-end px-4 rounded-md btn-next">Next Step</button>
+          </span>
+        </section>
+        <!-- Step 3 end -->
+
+        <!-- Step 4 start -->
+        <section class="pt-8 hidden h-full flex-col gap-5 text-base  font-bold px-16 w-full absolute max-sm:px-4">
+          <div class="flex flex-col gap-5 max-sm:bg-White p-5 max-sm:rounded-md">
+          <span>
+            <h2 class="text-2xl text-blue12">Finishing up</h2>
+            <p class="text-gray8">Double-check everything looks OK before confirming.</p>
+          </span>
+
+          <div class="flex flex-col">
+             <!-- change to yearly,yr where necessary -->
+            <span class="flex justify-between border-b border-b-gray8 p-3 bg-violet-50">
+              <div>
+                <h2 class="text-blue12">Arcade (Monthly)</h2>
+                <a href="" class="text-gray8 text-sm underline">Change</a>
+              </div>
+                <p class="text-blue12">$9/mo</p>
+            </span>
+
+            <span class="flex flex-col gap-2 p-3 bg-violet-50">
+              <div class="flex justify-between">
+                <h3 class="text-gray8 text-sm">Online service</h3>
+                <p class="text-blue12 text-sm">$1/mo</p>
+              </div>
+              <div class="flex justify-between">
+                <h3 class="text-gray8 text-sm">Larger storage</h3>
+                <p class="text-blue12 text-sm">$2/mo</p>
+              </div>
+            </span>
+
+            <span class="flex justify-between p-3">
+              <h3 class="text-gray8 text-sm">Total (per month/year)</h3>
+              <p class="text-Purple">$12/mo</p>
+            </span>
+          </div>
+          </div>
+
+          <span class="btn-con4 mt-auto max-sm:fixed max-sm:bottom-0 max-sm:bg-White max-sm:w-full max-sm:py-4 max-sm:left-0 flex justify-between items-center max-sm:px-4 ">
+            <button class="text-gray8 btn-back">Go Back</button>
+            <button class="text-gray4 bg-blue12 p-1 self-end px-4 rounded-md btn-next">Confirm</button>
+          </span>
+        </section>
+        <!-- Step 4 end -->
+
+        <!-- Step 5 start -->
+        <section class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden items-center flex-col">
+          <img src="/assets/images/icon-thank-you.svg" alt="">
+          <h2 class="text-blue12 font-bold text-2xl">Thank you!</h2>
+          <p class="text-gray8 align-middle text-center">Thanks for confirming your subscription! We hope you have fun 
+            using our platform. If you ever need support, please feel free 
+            to email us at support@loremgaming.com.</p>
+        </section>
+        <!-- Step 5 end -->
+      </div>
+
+    </section>
+  </main> 
+
+  <script src="script.js"></script>
+</body>
+</html>

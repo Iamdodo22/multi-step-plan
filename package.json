@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "compile-tw":"tailwindcss -i ./style.css -o ./output.css --watch"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}
